@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 
 app.use('/', (req, res) => {
-  const str = '안녕하세요 여기는 백엔드';
+  const str = 'hi here is backend 한글도 추가합니다.';
   const json = JSON.stringify(str);
   res.send(json);
 });
