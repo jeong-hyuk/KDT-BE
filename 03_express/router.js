@@ -13,7 +13,7 @@ const USER = {
     name: '김정혁',
   },
 };
-
+app.use(express.static('views'));
 app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
