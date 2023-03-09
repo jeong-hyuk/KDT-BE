@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = 4000;
 
-//localhost:4000/~~
+// localhost:4000/~~
 app.get(
   '/email/:email/password/:password/name/:name/gender/:gender',
   (req, res) => {
