@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <h2><a href="/">홈으로 가기</a></h2>
   <h1>hello, ejs world!</h1>
   <h1>회원 목록</h1>
   <h2>총 회원 수 <%= userCounts %></h2>
@@ -18,9 +19,9 @@
     <% if(userCounts> 0) { %>
     <% for(let i=0; i < userCounts; i++) { %>
     <li>
-      <p>ID: <%= USER_ARR[i].id %> </p>
-      <p>이름: <%= USER_ARR[i].name %> </p>
-      <p>e-mail: <%= USER_ARR[i].email %> </p>
+      <p>ID: <%= USER[i].id %> </p>
+      <p>이름: <%= USER[i].name %> </p>
+      <p>e-mail: <%= USER[i].email %> </p>
 
     </li> <% } %>
     <% } else { %>
