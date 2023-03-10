@@ -96,3 +96,4 @@ router.get('/show', (req, res) => {
 // });
 
 module.exports = router;
+// moduule 특정 기능을 수행할 수있는 최소한의 단위
