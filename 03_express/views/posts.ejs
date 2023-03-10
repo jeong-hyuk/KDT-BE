@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <script src="/js/main.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h2><a href="/">홈으로 가기</a></h2>
+  <h2>타이틀 수 : <%= userCounts %></h2>
+  <ul>
+    <% if(userCounts> 0) { %>
+    <% for(let i=0; i < userCounts; i++) { %>
+    <li>
+      <p>타이틀: <%= POST[i].title %> </p>
+      <p>콘텐츠: <%= POST[i].content %> </p>
+
+    </li> <% } %>
+    <% } else { %>
+    <li>해당 타이틀이 없습니다. </li>
+    <% } %>
+  </ul>
+
+  <form action="/posts/add" method="POST">
+    <div>
+      <label>타이틀</label>
+      <input type="text" name="title" />
+    </div>
+    <div>
+      <label>콘텐츠</label>
+      <input type="text" name="content" />
+    </div>
+
+    <button type="submit">제출</button>
+  </form>
+
+
+  <!-- <img src="/images/sky.jpg" alt="a" width="300px"> -->
+</body>
+
+</html>

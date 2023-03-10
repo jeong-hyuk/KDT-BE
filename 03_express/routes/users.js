@@ -35,17 +35,38 @@ router.get('/id/:id', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-  if (req.query.id && req.query.name && req.query.email) {
-    const newUser = {
-      id: req.query.id,
-      name: req.query.name,
-      email: req.query.email,
-    };
-    USER.push(newUser);
+  if (Object.keys(req.query).length >= 1) {
+    if (req.query.id && req.query.name && req.query.email) {
+      const newUser = {
+        id: req.query.id,
+        name: req.query.name,
+        email: req.query.email,
+      };
+      USER.push(newUser);
 
-    res.send('회원 추가 완료');
+      res.send('회원 추가 완료');
+    } else {
+      const err = new Error('쿼리 입력이 잘못되었습니다');
+      err.statusCode = 404;
+      throw err;
+    }
+  } else if (req.body) {
+    if (req.body.id && req.body.name && req.body.email) {
+      const newUser = {
+        id: req.body.id,
+        name: req.body.name,
+        email: req.body.email,
+      };
+      USER.push(newUser);
+
+      res.redirect('/users');
+    } else {
+      const err = new Error('폼 태그 입력을 확인하세요');
+      err.statusCode = 404;
+      throw err;
+    }
   } else {
-    const err = new Error('해당 ID를 가진 회원이 없습니다.');
+    const err = new Error('데이터가 입려되지 않았습니다');
     err.statusCode = 404;
     throw err;
   }
